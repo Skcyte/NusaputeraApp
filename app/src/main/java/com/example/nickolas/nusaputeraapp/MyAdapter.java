@@ -33,13 +33,14 @@ class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
-        Mapel listItem = listItems.get(position);
+        final Mapel listItem = listItems.get(position);
 
         holder.textViewMapel.setText(listItem.getNamaMapel());
         holder.linearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent detail = new Intent(context.getApplicationContext(), NilaiDetailActivity.class);
+                detail.putExtra("mapel", listItem.getNamaMapel());
                 context.startActivity(detail);
             }
         });

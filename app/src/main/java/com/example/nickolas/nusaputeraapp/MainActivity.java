@@ -44,13 +44,18 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        nilai.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent anilai = new Intent(MainActivity.this, ListNilaiActivity.class);
-                startActivity(anilai);
-            }
-        });
+        if(Integer.parseInt(status)==2){
+
+        }
+        else {
+            nilai.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent anilai = new Intent(MainActivity.this, ListNilaiActivity.class);
+                    startActivity(anilai);
+                }
+            });
+        }
 
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
