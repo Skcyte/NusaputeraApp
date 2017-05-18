@@ -1,0 +1,13 @@
+package com.example.nickolas.nusaputeraapp;
+
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+
+public class NilaiDetailActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_nilai_detail);
+    }
+}

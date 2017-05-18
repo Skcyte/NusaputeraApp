@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="@dimen/activity_horizontal_margin"
+    android:orientation="vertical"
+    tools:context="com.example.nickolas.nusaputeraapp.MainActivity"
+    tools:layout_editor_absoluteX="0dp"
+    tools:layout_editor_absoluteY="81dp">
+
+    <include
+        android:id="@+id/incl_logout"
+        layout="@layout/logout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/col_1"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn_profile"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="Profile" />
+
+            <Button
+                android:id="@+id/btn_nilai"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="Nilai" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/col2"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn_pengumuman"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="Pengumuman" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</RelativeLayout>

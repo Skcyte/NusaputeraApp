@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.nickolas.nusaputeraapp.ProfileActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/activity_horizontal_margin"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginRight="@dimen/activity_vertical_margin"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_induk"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Nomor Induk"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/no_induk"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/tv_nama"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Nama"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/nama"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/tv_ttl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tempat, Tanggal Lahir"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/ttl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/tv_alamat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Alamat"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/alamat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/tv_sex"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Jenis Kelamin"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/jkelamin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+</RelativeLayout>
