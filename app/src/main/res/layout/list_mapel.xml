@@ -11,15 +11,30 @@
         android:layout_height="wrap_content"
         android:foreground="?android:attr/selectableItemBackground">
 
-        <TextView
-            android:id="@+id/nm_mapel"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:fontFamily="sans-serif-condensed"
-            android:text="Header"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/nm_mapel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:fontFamily="sans-serif-condensed"
+                android:text="Header"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/kode_mapel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:text="Kode Mapel" />
+
+        </LinearLayout>
+
     </android.support.v7.widget.CardView>
 
 </LinearLayout>

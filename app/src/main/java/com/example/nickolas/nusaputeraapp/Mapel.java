@@ -5,9 +5,12 @@ package com.example.nickolas.nusaputeraapp;
  */
 
 public class Mapel {
+    String kdmapel;
     String namaMapel;
 
-    public Mapel(String namaMapel) {
+
+    public Mapel(String kdmapel , String namaMapel) {
+        this.kdmapel = kdmapel;
         this.namaMapel = namaMapel;
     }
 
@@ -17,5 +20,13 @@ public class Mapel {
 
     public void setNamaMapel(String namaMapel) {
         this.namaMapel = namaMapel;
+    }
+
+    public String getKdmapel() {
+        return kdmapel;
+    }
+
+    public void setKdmapel(String kdmapel) {
+        this.kdmapel = kdmapel;
     }
 }

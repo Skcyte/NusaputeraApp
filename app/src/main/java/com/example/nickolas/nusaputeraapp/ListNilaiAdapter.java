@@ -15,11 +15,11 @@ import java.util.List;
  * Created by Nickolas on 17-May-17.
  */
 
-class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
+class ListNilaiAdapter extends RecyclerView.Adapter<ListNilaiAdapter.ViewHolder> {
     private List<Mapel> listItems;
     private Context context;
 
-    public MyAdapter(List<Mapel> listItems, Context context) {
+    public ListNilaiAdapter(List<Mapel> listItems, Context context) {
         this.listItems = listItems;
         this.context = context;
     }
@@ -36,6 +36,7 @@ class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
         final Mapel listItem = listItems.get(position);
 
         holder.textViewMapel.setText(listItem.getNamaMapel());
+        holder.textViewKode.setText(listItem.getKdmapel());
         holder.linearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -52,13 +53,14 @@ class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        public TextView textViewMapel;
+        public TextView textViewMapel, textViewKode;
         public LinearLayout linearLayout;
 
         public ViewHolder(View itemView) {
             super(itemView);
 
             textViewMapel = (TextView)itemView.findViewById(R.id.nm_mapel);
+            textViewKode = (TextView)itemView.findViewById(R.id.kode_mapel);
             linearLayout = (LinearLayout)itemView.findViewById(R.id.linearLayout);
         }
     }

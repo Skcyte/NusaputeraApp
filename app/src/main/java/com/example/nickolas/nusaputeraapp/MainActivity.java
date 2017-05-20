@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
             nilai.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent anilai = new Intent(MainActivity.this, ListNilaiActivity.class);
+                    Intent anilai = new Intent(MainActivity.this, TahunAjaranActivity.class);
                     startActivity(anilai);
                 }
             });
