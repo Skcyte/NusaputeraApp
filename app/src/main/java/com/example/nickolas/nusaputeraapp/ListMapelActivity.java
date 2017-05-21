@@ -21,15 +21,23 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ListNilaiActivity extends AppCompatActivity {
+public class ListMapelActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
     private List<Mapel> mapel_list;
+    public static String vartahun;
+    private Bundle extra;
     private final String url_data = "http://wkshop142017.esy.es/android/list_mapel.php";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_view);
+
+        extra = getIntent().getExtras();
+        if (extra==null)
+            vartahun = null;
+        else
+            vartahun = extra.getString("tahun");
 
         recyclerView = (RecyclerView)findViewById(R.id.rec_view);
         recyclerView.setHasFixedSize(true);
@@ -61,7 +69,7 @@ public class ListNilaiActivity extends AppCompatActivity {
                                 mapel_list.add(item);
                             }
 
-                            adapter = new ListNilaiAdapter(mapel_list, getApplicationContext());
+                            adapter = new ListMapelAdapter(mapel_list, getApplicationContext());
                             recyclerView.setAdapter(adapter);
                         } catch (JSONException e) {
                             e.printStackTrace();

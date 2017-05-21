@@ -24,7 +24,7 @@
         </activity>
         <activity android:name=".LoginActivity" />
         <activity android:name=".ProfileActivity" />
-        <activity android:name=".ListNilaiActivity" />
+        <activity android:name=".ListMapelActivity" />
         <activity android:name=".NilaiDetailActivity" />
         <activity android:name=".TahunAjaranActivity"></activity>
     </application>

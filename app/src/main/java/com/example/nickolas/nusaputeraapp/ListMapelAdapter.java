@@ -15,11 +15,11 @@ import java.util.List;
  * Created by Nickolas on 17-May-17.
  */
 
-class ListNilaiAdapter extends RecyclerView.Adapter<ListNilaiAdapter.ViewHolder> {
+class ListMapelAdapter extends RecyclerView.Adapter<ListMapelAdapter.ViewHolder> {
     private List<Mapel> listItems;
     private Context context;
 
-    public ListNilaiAdapter(List<Mapel> listItems, Context context) {
+    public ListMapelAdapter(List<Mapel> listItems, Context context) {
         this.listItems = listItems;
         this.context = context;
     }
@@ -42,6 +42,7 @@ class ListNilaiAdapter extends RecyclerView.Adapter<ListNilaiAdapter.ViewHolder>
             public void onClick(View v) {
                 Intent detail = new Intent(context.getApplicationContext(), NilaiDetailActivity.class);
                 detail.putExtra("mapel", listItem.getNamaMapel());
+                detail.putExtra("kdMapel", listItem.getKdmapel());
                 context.startActivity(detail);
             }
         });

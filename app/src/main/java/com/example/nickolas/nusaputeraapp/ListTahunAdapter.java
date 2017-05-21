@@ -2,6 +2,7 @@ package com.example.nickolas.nusaputeraapp;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -39,7 +40,8 @@ class ListTahunAdapter extends RecyclerView.Adapter<ListTahunAdapter.ViewHolder>
         holder.linearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent detail = new Intent(context.getApplicationContext(), ListNilaiActivity.class);
+                Intent detail = new Intent(context.getApplicationContext(), ListMapelActivity.class);
+                detail.putExtra("tahun", listItem.getTahun());
                 context.startActivity(detail);
             }
         });
