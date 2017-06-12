@@ -5,6 +5,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
+import android.view.ViewStub;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -32,6 +35,10 @@ public class ListMapelActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_view);
+        ViewStub stub = (ViewStub) findViewById(R.id.stub);
+        View inflated = stub.inflate();
+        Button footer = (Button)findViewById(R.id.btn_footer);
+        footer.setText("Raport Bayangan");
 
         extra = getIntent().getExtras();
         if (extra==null)

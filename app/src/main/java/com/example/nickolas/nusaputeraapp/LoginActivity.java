@@ -49,6 +49,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 final String username = user.getText().toString();
                 final String password = pass.getText().toString();
+                System.out.println(username+password);
                 if (username.isEmpty() || password.isEmpty())
                     Toast.makeText(LoginActivity.this, "Username and Password must be filled.", Toast.LENGTH_SHORT).show();
                 else
@@ -147,6 +148,7 @@ public class LoginActivity extends AppCompatActivity {
             try {
                 response = new JSONObject(result);
                 res = response.getString("result");
+                System.out.println(res);
                 JSONArray data = response.getJSONArray("data");
                 for (int i = 0; i<data.length(); i++){
                     JSONObject indeks = data.getJSONObject(i);
