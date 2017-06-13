@@ -66,17 +66,18 @@ public class ProfileActivity extends AppCompatActivity {
         footer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Dialog dialog = new Dialog(ProfileActivity.this);
+                final Dialog dialog = new Dialog(ProfileActivity.this);
                 dialog.setContentView(R.layout.update_dialog);
                 dialog.setTitle("Update Password");
+                dialog.show();
                 final EditText passlama = (EditText) dialog.findViewById(R.id.pass_lama);
                 final EditText passbaru = (EditText)dialog.findViewById(R.id.up_pass);
                 Button update = (Button)dialog.findViewById(R.id.btn_update);
-                dialog.show();
                 update.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        new UpdatePassAsync().execute(noinduk, passlama.toString(), passbaru.toString());
+                        dialog.dismiss();
+                        new UpdatePassAsync().execute(noinduk, passlama.getText().toString(), passbaru.getText().toString());
                     }
                 });
             }

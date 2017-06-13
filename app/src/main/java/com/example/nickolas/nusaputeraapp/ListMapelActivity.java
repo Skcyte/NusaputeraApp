@@ -39,7 +39,7 @@ public class ListMapelActivity extends AppCompatActivity {
         ViewStub stub = (ViewStub) findViewById(R.id.stub);
         View inflated = stub.inflate();
         Button footer = (Button)findViewById(R.id.btn_footer);
-        footer.setText("Raport Bayangan");
+        footer.setText("Lihat Raport/Bayangan");
 
         footer.setOnClickListener(new View.OnClickListener() {
             @Override
