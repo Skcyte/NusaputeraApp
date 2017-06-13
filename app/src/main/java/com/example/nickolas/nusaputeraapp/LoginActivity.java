@@ -148,8 +148,8 @@ public class LoginActivity extends AppCompatActivity {
             try {
                 response = new JSONObject(result);
                 res = response.getString("result");
-                System.out.println(res);
                 JSONArray data = response.getJSONArray("data");
+                System.out.print(data);
                 for (int i = 0; i<data.length(); i++){
                     JSONObject indeks = data.getJSONObject(i);
                     id = indeks.getString("id");

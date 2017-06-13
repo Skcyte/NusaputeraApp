@@ -26,7 +26,8 @@
         <activity android:name=".ProfileActivity" />
         <activity android:name=".ListMapelActivity" />
         <activity android:name=".NilaiDetailActivity" />
-        <activity android:name=".TahunAjaranActivity"></activity>
+        <activity android:name=".TahunAjaranActivity" />
+        <activity android:name=".SelectSemester"></activity>
     </application>
 
 </manifest>

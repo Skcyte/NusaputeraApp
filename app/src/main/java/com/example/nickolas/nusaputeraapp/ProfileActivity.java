@@ -4,8 +4,13 @@ import android.app.ProgressDialog;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.service.textservice.SpellCheckerService;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewStub;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -50,6 +55,22 @@ public class ProfileActivity extends AppCompatActivity {
         alamat = (TextView)findViewById(R.id.alamat);
         jkelamin = (TextView)findViewById(R.id.jkelamin);
         ttl = (TextView)findViewById(R.id.ttl);
+
+        ViewStub stub = (ViewStub) findViewById(R.id.stub);
+        View inflated = stub.inflate();
+        Button footer = (Button)findViewById(R.id.btn_footer);
+        footer.setText("Update Password");
+
+        footer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog alertDialog = new AlertDialog.Builder(ProfileActivity.this).create();
+                alertDialog.setTitle("Update Password");
+                alertDialog.setView(getLayoutInflater().inflate(R.layout.update_dialog, null));
+                alertDialog.show();
+
+            }
+        });
 
         new ProfileAsync().execute(noinduk, status);
     }

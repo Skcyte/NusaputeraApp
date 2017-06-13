@@ -1,6 +1,7 @@
 package com.example.nickolas.nusaputeraapp;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -39,6 +40,14 @@ public class ListMapelActivity extends AppCompatActivity {
         View inflated = stub.inflate();
         Button footer = (Button)findViewById(R.id.btn_footer);
         footer.setText("Raport Bayangan");
+
+        footer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent sem = new Intent(getApplicationContext(), SelectSemester.class);
+                startActivity(sem);
+            }
+        });
 
         extra = getIntent().getExtras();
         if (extra==null)
