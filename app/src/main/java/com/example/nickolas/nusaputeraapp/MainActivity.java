@@ -34,7 +34,13 @@ public class MainActivity extends AppCompatActivity {
         pengumuman = (Button)findViewById(R.id.btn_pengumuman);
         absen = (Button)findViewById(R.id.btn_absensi);
 
-        //setContentView(R.layout.activity_main);
+        pengumuman.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent notice = new Intent(MainActivity.this, PesanActivity.class);
+                startActivity(notice);
+            }
+        });
 
         profile.setOnClickListener(new View.OnClickListener() {
             @Override

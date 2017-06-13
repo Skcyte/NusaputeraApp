@@ -27,6 +27,8 @@
         <activity android:name=".ListMapelActivity" />
         <activity android:name=".NilaiDetailActivity" />
         <activity android:name=".TahunAjaranActivity" />
+        <activity android:name=".PesanActivity" />
+        <activity android:name=".pesanDetail" />
         <activity android:name=".SelectSemester"></activity>
     </application>
 
