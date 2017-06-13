@@ -1,5 +1,6 @@
 package com.example.nickolas.nusaputeraapp;
 
+import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.net.Uri;
 import android.os.AsyncTask;
@@ -11,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewStub;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -64,11 +66,19 @@ public class ProfileActivity extends AppCompatActivity {
         footer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AlertDialog alertDialog = new AlertDialog.Builder(ProfileActivity.this).create();
-                alertDialog.setTitle("Update Password");
-                alertDialog.setView(getLayoutInflater().inflate(R.layout.update_dialog, null));
-                alertDialog.show();
-
+                Dialog dialog = new Dialog(ProfileActivity.this);
+                dialog.setContentView(R.layout.update_dialog);
+                dialog.setTitle("Update Password");
+                final EditText passlama = (EditText) dialog.findViewById(R.id.pass_lama);
+                final EditText passbaru = (EditText)dialog.findViewById(R.id.up_pass);
+                Button update = (Button)dialog.findViewById(R.id.btn_update);
+                dialog.show();
+                update.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        new UpdatePassAsync().execute(noinduk, passlama.toString(), passbaru.toString());
+                    }
+                });
             }
         });
 
@@ -162,7 +172,9 @@ public class ProfileActivity extends AppCompatActivity {
             try {
                 response = new JSONObject(result);
                 res = response.getString("result");
+                System.out.print(res);
                 JSONArray data = response.getJSONArray("data");
+                System.out.println(data);
                 for (int i = 0; i<data.length(); i++){
                     JSONObject indeks = data.getJSONObject(i);
                     if (stat==2)
@@ -174,7 +186,6 @@ public class ProfileActivity extends AppCompatActivity {
                     jkelamin.setText(indeks.getString("jKelamin"));
                     ttl.setText(indeks.getString("kotaAsal")+", "+indeks.getString("tglLahir"));
                 }
-                System.out.println(data);
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -183,6 +194,93 @@ public class ProfileActivity extends AppCompatActivity {
         }
     }
 
+    class UpdatePassAsync extends AsyncTask<String, String, String>{
+        ProgressDialog loadingDialog;
+        HttpURLConnection conn;
+        URL url = null;
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            loadingDialog = ProgressDialog.show(ProfileActivity.this, "Please wait", "Loading...");
+            loadingDialog.setCancelable(false);
+        }
+        @Override
+        protected String doInBackground(String... params) {
+            try {
+                    url = new URL("http://wkshop142017.esy.es/android/update_password.php");
+            } catch (MalformedURLException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+                return "exception";
+            }
+            try {
+                conn = (HttpURLConnection)url.openConnection();
+                conn.setReadTimeout(READ_TIMEOUT);
+                conn.setConnectTimeout(CONNECTION_TIMEOUT);
+                conn.setRequestMethod("POST");
+
+                conn.setDoInput(true);
+                conn.setDoOutput(true);
+
+                Uri.Builder builder = new Uri.Builder()
+                        .appendQueryParameter("noinduk", params[0])
+                        .appendQueryParameter("password", params[1])
+                        .appendQueryParameter("update", params[2]);
+                String query = builder.build().getEncodedQuery();
+
+                OutputStream os = conn.getOutputStream();
+                BufferedWriter writer = new BufferedWriter(
+                        new OutputStreamWriter(os, "UTF-8"));
+                writer.write(query);
+                writer.flush();
+                writer.close();
+                os.close();
+                conn.connect();
+
+            } catch (IOException e1) {
+                // TODO Auto-generated catch block
+                e1.printStackTrace();
+                return "exception";
+            }
+
+            try {
+
+                int response_code = conn.getResponseCode();
+
+                if (response_code == HttpURLConnection.HTTP_OK) {
+
+                    InputStream input = conn.getInputStream();
+                    BufferedReader reader = new BufferedReader(new InputStreamReader(input));
+                    StringBuilder result = new StringBuilder();
+                    String line;
+
+                    while ((line = reader.readLine()) != null) {
+                        result.append(line);
+                    }
+
+                    return(result.toString());
+
+                }else{
+                    return("unsuccessful");
+                }
+
+            } catch (IOException e) {
+                e.printStackTrace();
+                return "exception";
+            } finally {
+                conn.disconnect();
+            }
+        }
+
+        @Override
+        protected void onPostExecute(String result){
+            loadingDialog.dismiss();
+            if (result.equalsIgnoreCase("failed"))
+                Toast.makeText(ProfileActivity.this, "Gagal autentifikasi password lama", Toast.LENGTH_SHORT).show();
+            else
+                session.logoutUser();
+        }
+    }
     @Override
     public void onBackPressed() {
         super.onBackPressed();

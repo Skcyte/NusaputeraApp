@@ -154,7 +154,7 @@ public class LoginActivity extends AppCompatActivity {
                     JSONObject indeks = data.getJSONObject(i);
                     id = indeks.getString("id");
                     stat = indeks.getString("status");
-                    ref = indeks.getString("nmrinduk");
+                    ref = indeks.getString("nmInduk");
                 }
             } catch (JSONException e) {
                 e.printStackTrace();
