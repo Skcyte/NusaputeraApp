@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
         nilai = (Button)findViewById(R.id.btn_nilai);
         profile = (Button)findViewById(R.id.btn_profile);
         pengumuman = (Button)findViewById(R.id.btn_pengumuman);
-        absen = (Button)findViewById(R.id.btn_absensi);
+//        absen = (Button)findViewById(R.id.btn_absensi);
 
         pengumuman.setOnClickListener(new View.OnClickListener() {
             @Override
