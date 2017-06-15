@@ -5,12 +5,22 @@ package com.example.nickolas.nusaputeraapp;
  */
 
 public class Pesan {
-    private String pesan, judul, tgl;
+    private String no, pesan, judul, tgl, status;
 
-    public Pesan(String judul, String pesan, String tgl) {
+    public Pesan(String no, String pesan, String judul, String tgl, String status) {
+        this.no = no;
         this.pesan = pesan;
         this.judul = judul;
         this.tgl = tgl;
+        this.status = status;
+    }
+
+    public String getNo() {
+        return no;
+    }
+
+    public void setNo(String no) {
+        this.no = no;
     }
 
     public String getPesan() {
@@ -35,5 +45,13 @@ public class Pesan {
 
     public void setTgl(String tgl) {
         this.tgl = tgl;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 }

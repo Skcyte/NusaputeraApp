@@ -38,15 +38,19 @@ final Pesan listItem = listItems.get(position);
         holder.textViewJudul.setText(listItem.getJudul());
         holder.textViewPesan.setText(listItem.getPesan());
         holder.textViewCreated.setText(listItem.getTgl());
+        if(listItem.getStatus().equals("1")){
+            holder.linearLayout.setSelected(true);
+        }
         holder.linearLayout.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View view) {
             if(listItems.get(position)!=null) {
                 Intent pesanDetail = new Intent(context.getApplicationContext(), pesanDetail.class);
+                pesanDetail.putExtra("no", listItem.getNo());
                 pesanDetail.putExtra("judul", listItem.getJudul());
                 pesanDetail.putExtra("pesan", listItem.getPesan());
-                context.startActivity(pesanDetail);
                 holder.linearLayout.setSelected(true);
+                context.startActivity(pesanDetail);
             }
         }
     });

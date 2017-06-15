@@ -47,7 +47,6 @@ public class PesanActivity extends AppCompatActivity {
             url_data = "http://wkshop142017.esy.es/android/showPesanKaryawan.php";
 
 
-        System.out.println(url_data);
         System.out.println(noinduk);
         recyclerView = (RecyclerView)findViewById(R.id.rec_view);
         recyclerView.setHasFixedSize(true);
@@ -73,9 +72,11 @@ public class PesanActivity extends AppCompatActivity {
                             for (int i = 0; i<data.length(); i++){
                                 JSONObject x = data.getJSONObject(i);
                                 Pesan item = new Pesan(
+                                        x.getString("No"),
                                         x.getString("judul"),
                                         x.getString("isipesan"),
-                                        x.getString("created_at")
+                                        x.getString("created_at"),
+                                        x.getString("status")
                                 );
                                 pesan_list.add(item);
                             }
