@@ -99,7 +99,7 @@ public class ProfileActivity extends AppCompatActivity {
         @Override
         protected String doInBackground(String... params) {
             try {
-                if (Integer.parseInt(params[1])==1 || Integer.parseInt(params[1])==3)
+                if (Integer.parseInt(params[1])==1 || Integer.parseInt(params[1])==2)
                     url = new URL("http://wkshop142017.esy.es/android/profile_siswa.php");
                 else
                     url = new URL("http://wkshop142017.esy.es/android/profile_guru.php");
@@ -178,7 +178,7 @@ public class ProfileActivity extends AppCompatActivity {
                 System.out.println(data);
                 for (int i = 0; i<data.length(); i++){
                     JSONObject indeks = data.getJSONObject(i);
-                    if (stat==2)
+                    if (stat==3)
                         nis.setText(indeks.getString("NIK"));
                     else
                         nis.setText(indeks.getString("nis"));
