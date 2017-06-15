@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        if(Integer.parseInt(status)==2){
+        if(Integer.parseInt(status)==3){
 
         }
         else {

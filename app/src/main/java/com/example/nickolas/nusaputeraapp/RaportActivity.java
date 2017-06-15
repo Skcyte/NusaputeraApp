@@ -27,15 +27,15 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class ListMapelActivity extends AppCompatActivity {
+public class RaportActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
-    private List<Mapel> mapel_list;
+    private List<Raport> raport_list;
     private SessionManager session;
     private String noinduk;
-    public static String vartahun;
+    public static String ajaran;
     private Bundle extra;
-    private final String url_data = "http://wkshop142017.esy.es/android/list_mapel.php";
+    private final String url_data = "http://wkshop142017.esy.es/android/requestRaport.php";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,33 +43,22 @@ public class ListMapelActivity extends AppCompatActivity {
         session = new SessionManager(getApplicationContext());
         HashMap<String, String> user = session.getUserDetails();
         noinduk = user.get(SessionManager.KEY_NMRINDUK);
-        ViewStub stub = (ViewStub) findViewById(R.id.stub);
-        View inflated = stub.inflate();
-        Button footer = (Button)findViewById(R.id.btn_footer);
-        footer.setText("Lihat Raport/Bayangan");
-
-        footer.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent sem = new Intent(getApplicationContext(), SelectSemester.class);
-                startActivity(sem);
-            }
-        });
+        setTitle("Raport");
 
         extra = getIntent().getExtras();
         if (extra==null)
-            vartahun = null;
+            ajaran = null;
         else
-            vartahun = extra.getString("tahun");
+            ajaran = extra.getString("tahun");
 
         recyclerView = (RecyclerView)findViewById(R.id.rec_view);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        mapel_list = new ArrayList<>();
-        loadDatamapel();
+        raport_list = new ArrayList<>();
+        loadDataraport();
     }
 
-    private void loadDatamapel() {
+    private void loadDataraport() {
         final ProgressDialog pDialog = new ProgressDialog(this);
         pDialog.setMessage("Loading...");
         pDialog.show();
@@ -85,14 +74,15 @@ public class ListMapelActivity extends AppCompatActivity {
                             System.out.println(data);
                             for (int i = 0; i<data.length(); i++){
                                 JSONObject x = data.getJSONObject(i);
-                                Mapel item = new Mapel(
-                                        x.getString("kdMapel"),
-                                        x.getString("namaMapel")
+                                Raport item = new Raport(
+                                        x.getString("namamapel"),
+                                        x.getString("kdmapel"),
+                                        x.getString("raport")
                                 );
-                                mapel_list.add(item);
+                                raport_list.add(item);
                             }
 
-                            adapter = new ListMapelAdapter(mapel_list, getApplicationContext());
+                            adapter = new RaportAdapter(raport_list, getApplicationContext());
                             recyclerView.setAdapter(adapter);
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -109,7 +99,7 @@ public class ListMapelActivity extends AppCompatActivity {
             protected Map<String, String> getParams() {
                 Map<String, String> params = new HashMap<String, String>();
                 params.put("noinduk", noinduk);
-                params.put("tahun", vartahun);
+                params.put("ajaran", ajaran);
 
                 return params;
             }};

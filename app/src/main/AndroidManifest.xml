@@ -29,7 +29,8 @@
         <activity android:name=".TahunAjaranActivity" />
         <activity android:name=".PesanActivity" />
         <activity android:name=".pesanDetail" />
-        <activity android:name=".SelectSemester"></activity>
+        <activity android:name=".SelectSemester" />
+        <activity android:name=".RaportActivity"></activity>
     </application>
 
 </manifest>

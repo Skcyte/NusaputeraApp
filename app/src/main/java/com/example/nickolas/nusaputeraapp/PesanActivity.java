@@ -41,9 +41,9 @@ public class PesanActivity extends AppCompatActivity {
         noinduk = user.get(SessionManager.KEY_NMRINDUK);
         status = Integer.parseInt(stat);
 
-        if(status==1 || status==3)
+        if(status==1 || status==2)
             url_data = "http://wkshop142017.esy.es/android/showPesanSiswa.php";
-        else if(status==2)
+        else if(status==3)
             url_data = "http://wkshop142017.esy.es/android/showPesanKaryawan.php";
 
 
