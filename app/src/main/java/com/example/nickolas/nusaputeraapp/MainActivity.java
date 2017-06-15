@@ -92,10 +92,10 @@ public class MainActivity extends AppCompatActivity {
             case 1:
                 setContentView(R.layout.activity_main);
                 break;
-            case 2:
+            case 3:
                 setContentView(R.layout.activity_main_teacher);
                 break;
-            case 3:
+            case 2:
                 setContentView(R.layout.activity_main_parent);
                 break;
         }
