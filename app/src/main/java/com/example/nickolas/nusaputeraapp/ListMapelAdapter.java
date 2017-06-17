@@ -41,6 +41,7 @@ class ListMapelAdapter extends RecyclerView.Adapter<ListMapelAdapter.ViewHolder>
             @Override
             public void onClick(View v) {
                 Intent detail = new Intent(context.getApplicationContext(), NilaiDetailActivity.class);
+                detail.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 detail.putExtra("mapel", listItem.getNamaMapel());
                 detail.putExtra("kdMapel", listItem.getKdmapel());
                 context.startActivity(detail);

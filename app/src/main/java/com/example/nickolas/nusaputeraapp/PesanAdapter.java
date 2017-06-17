@@ -46,6 +46,7 @@ final Pesan listItem = listItems.get(position);
         public void onClick(View view) {
             if(listItems.get(position)!=null) {
                 Intent pesanDetail = new Intent(context.getApplicationContext(), pesanDetail.class);
+                pesanDetail.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 pesanDetail.putExtra("no", listItem.getNo());
                 pesanDetail.putExtra("judul", listItem.getJudul());
                 pesanDetail.putExtra("pesan", listItem.getPesan());
