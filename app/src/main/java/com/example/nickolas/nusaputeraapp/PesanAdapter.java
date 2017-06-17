@@ -3,6 +3,7 @@ package com.example.nickolas.nusaputeraapp;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Typeface;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -65,6 +66,7 @@ public int getItemCount() {
 public class ViewHolder extends RecyclerView.ViewHolder {
     public TextView textViewPesan, textViewJudul, textViewCreated;
     public LinearLayout linearLayout;
+    public CardView cardView;
 
     public ViewHolder(View itemView) {
         super(itemView);
