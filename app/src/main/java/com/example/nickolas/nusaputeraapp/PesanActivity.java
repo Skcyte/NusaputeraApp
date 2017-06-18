@@ -73,8 +73,8 @@ public class PesanActivity extends AppCompatActivity {
                                 JSONObject x = data.getJSONObject(i);
                                 Pesan item = new Pesan(
                                         x.getString("No"),
-                                        x.getString("judul"),
                                         x.getString("isipesan"),
+                                        x.getString("judul"),
                                         x.getString("created_at"),
                                         x.getString("status")
                                 );

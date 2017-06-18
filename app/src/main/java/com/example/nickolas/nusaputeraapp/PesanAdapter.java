@@ -66,7 +66,6 @@ public int getItemCount() {
 public class ViewHolder extends RecyclerView.ViewHolder {
     public TextView textViewPesan, textViewJudul, textViewCreated;
     public LinearLayout linearLayout;
-    public CardView cardView;
 
     public ViewHolder(View itemView) {
         super(itemView);

@@ -37,16 +37,18 @@ import java.util.Map;
 public class pesanDetail extends AppCompatActivity {
     public static final int CONNECTION_TIMEOUT=10000;
     public static final int READ_TIMEOUT=15000;
+    SessionManager sessionManager;
     Bundle extra;
-    String jdul, psan, no;
+    String jdul, psan, no, status;
     TextView judul, pesan;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pesan_detail);
-
-        judul = (TextView) findViewById(R.id.textViewJudul);
+        sessionManager = new SessionManager(getApplicationContext());
+        HashMap<String , String> user = sessionManager.getUserDetails();
+        status = user.get(SessionManager.KEY_STATUS);
         pesan = (TextView) findViewById(R.id.textViewPesan);
 
         extra = getIntent().getExtras();
@@ -60,7 +62,7 @@ public class pesanDetail extends AppCompatActivity {
             no = extra.getString("no");
         }
         System.out.println(no);
-        judul.setText(jdul);
+        setTitle(jdul);
         pesan.setText(psan);
 
         new UpdateRead().execute(no);
@@ -79,7 +81,10 @@ public class pesanDetail extends AppCompatActivity {
         @Override
         protected String doInBackground(String... params) {
             try {
-                url = new URL("http://wkshop142017.esy.es/android/updatePesan.php");
+                    if(status.equals("1") || status.equals("2"))
+                        url = new URL("http://wkshop142017.esy.es/android/updatePesan.php");
+                    else
+                        url = new URL("http://wkshop142017.esy.es/android/updatePesanKaryawan.php");
             } catch (MalformedURLException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
