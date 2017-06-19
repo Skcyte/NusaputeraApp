@@ -30,7 +30,7 @@
         <activity android:name=".PesanActivity" />
         <activity android:name=".pesanDetail" />
         <activity android:name=".SelectSemester" />
-        <activity android:name=".RaportActivity"></activity>
+        <activity android:name=".RaportActivity" />
     </application>
 
 </manifest>

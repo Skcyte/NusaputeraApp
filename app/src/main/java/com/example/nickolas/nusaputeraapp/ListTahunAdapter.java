@@ -40,7 +40,7 @@ class ListTahunAdapter extends RecyclerView.Adapter<ListTahunAdapter.ViewHolder>
         holder.linearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent detail = new Intent(context.getApplicationContext(), ListMapelActivity.class);
+                Intent detail = new Intent(context.getApplicationContext(), SelectSemester.class);
                 detail.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 detail.putExtra("tahun", listItem.getTahun());
                 context.startActivity(detail);

@@ -51,7 +51,7 @@ public class ListMapelActivity extends AppCompatActivity {
         footer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent sem = new Intent(getApplicationContext(), SelectSemester.class);
+                Intent sem = new Intent(getApplicationContext(), RaportActivity.class);
                 startActivity(sem);
             }
         });

@@ -34,7 +34,6 @@ public class RaportActivity extends AppCompatActivity {
     private SessionManager session;
     private String noinduk;
     public static String ajaran;
-    private Bundle extra;
     private final String url_data = "http://wkshop142017.esy.es/android/requestRaport.php";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,11 +44,8 @@ public class RaportActivity extends AppCompatActivity {
         noinduk = user.get(SessionManager.KEY_NMRINDUK);
         setTitle("Raport");
 
-        extra = getIntent().getExtras();
-        if (extra==null)
-            ajaran = null;
-        else
-            ajaran = extra.getString("tahun");
+        ajaran=ListMapelActivity.vartahun;
+        System.out.println(ajaran);
 
         recyclerView = (RecyclerView)findViewById(R.id.rec_view);
         recyclerView.setHasFixedSize(true);
