@@ -38,10 +38,12 @@ public class RaportActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_list_view);
+        setContentView(R.layout.activity_list_raport);
         session = new SessionManager(getApplicationContext());
         HashMap<String, String> user = session.getUserDetails();
         noinduk = user.get(SessionManager.KEY_NMRINDUK);
+        ViewStub stub = (ViewStub) findViewById(R.id.stub);
+        View inflated = stub.inflate();
         setTitle("Raport");
 
         ajaran=ListMapelActivity.vartahun;
@@ -73,7 +75,9 @@ public class RaportActivity extends AppCompatActivity {
                                 Raport item = new Raport(
                                         x.getString("namamapel"),
                                         x.getString("kdmapel"),
-                                        x.getString("raport")
+                                        x.getString("raport"),
+                                        x.getString("ketrampilan"),
+                                        x.getString("sikap")
                                 );
                                 raport_list.add(item);
                             }

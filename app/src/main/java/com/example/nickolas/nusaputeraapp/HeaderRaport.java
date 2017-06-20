@@ -1,34 +1,25 @@
 package com.example.nickolas.nusaputeraapp;
 
 /**
- * Created by Nickolas on 15-Jun-17.
+ * Created by Nickolas on 20-Jun-17.
  */
 
-public class Raport {
-    private String namamapel, kode, nilai, ketrampilan, sikap;
+public class HeaderRaport {
+    String nama, nilai, ketrampilan, sikap;
 
-    public Raport(String namamapel, String kode, String nilai, String ketrampilan, String sikap) {
-        this.namamapel = namamapel;
-        this.kode = kode;
+    public HeaderRaport(String nama, String nilai, String ketrampilan, String sikap) {
+        this.nama = nama;
         this.nilai = nilai;
         this.ketrampilan = ketrampilan;
         this.sikap = sikap;
     }
 
-    public String getNamamapel() {
-        return namamapel;
+    public String getNama() {
+        return nama;
     }
 
-    public void setNamamapel(String namamapel) {
-        this.namamapel = namamapel;
-    }
-
-    public String getKode() {
-        return kode;
-    }
-
-    public void setKode(String kode) {
-        this.kode = kode;
+    public void setNama(String nama) {
+        this.nama = nama;
     }
 
     public String getNilai() {

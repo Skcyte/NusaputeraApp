@@ -37,6 +37,8 @@ class RaportAdapter extends RecyclerView.Adapter<RaportAdapter.ViewHolder> {
 
         holder.textViewKomponen.setText(listItem.getNamamapel());
         holder.textViewNilai.setText(listItem.getNilai());
+        holder.textViewKetrampilan.setText(listItem.getKetrampilan());
+        holder.textViewSikap.setText(listItem.getSikap());
     }
 
     @Override
@@ -45,7 +47,7 @@ class RaportAdapter extends RecyclerView.Adapter<RaportAdapter.ViewHolder> {
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        public TextView textViewKomponen, textViewNilai;
+        public TextView textViewKomponen, textViewNilai, textViewKetrampilan, textViewSikap;
         public LinearLayout linearLayout;
 
         public ViewHolder(View itemView) {
@@ -53,6 +55,8 @@ class RaportAdapter extends RecyclerView.Adapter<RaportAdapter.ViewHolder> {
 
             textViewKomponen = (TextView)itemView.findViewById(R.id.rkomponen);
             textViewNilai = (TextView)itemView.findViewById(R.id.rnilai);
+            textViewKetrampilan = (TextView)itemView.findViewById(R.id.rketerampilan);
+            textViewSikap = (TextView)itemView.findViewById(R.id.rsikap);
             linearLayout = (LinearLayout)itemView.findViewById(R.id.linearLayout);
         }
     }

@@ -6,17 +6,19 @@
     android:layout_height="match_parent"
     tools:context="com.example.nickolas.nusaputeraapp.ListMapelActivity">
 
+    <ViewStub
+        android:id="@+id/stub"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout="@layout/header_raport" />
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rec_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_alignParentTop="true"
-        android:layout_toEndOf="@+id/stub" />
+        android:layout_below="@+id/stub"
+        android:layout_toEndOf="@+id/stub"
+        android:layout_marginTop="43dp" />
 
-    <ViewStub
-        android:id="@+id/stub"
-        android:layout="@layout/footer"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"/>
 </RelativeLayout>
